@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: 8 9 11;
+  --color-surface: 17 19 23;
+  --color-surface-elevated: 23 26 32;
+  --color-accent: 110 168 255;
+  --color-text-primary: #f5f5f7;
+  --color-text-secondary: #a1a1aa;
+  --color-text-muted: #71717a;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(255, 255, 255, 0.14);
+  --color-accent-soft: rgba(110, 168, 255, 0.16);
+  --color-accent-line: rgba(110, 168, 255, 0.48);
+  --radius-panel: 18px;
+  --radius-control: 12px;
+  --shadow-panel: 0 24px 80px rgba(0, 0, 0, 0.36);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at 50% -10%, rgba(130, 170, 255, 0.09), transparent 26rem),
+    radial-gradient(circle at 82% 16%, rgba(110, 168, 255, 0.045), transparent 22rem),
+    radial-gradient(circle at 14% 92%, rgba(255, 255, 255, 0.035), transparent 26rem),
+    rgb(var(--color-bg));
+  color: var(--color-text-primary);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  background:
+    radial-gradient(circle at 18% 22%, rgba(255, 255, 255, 0.18) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 72% 34%, rgba(110, 168, 255, 0.18) 0 1px, transparent 1.4px),
+    radial-gradient(circle at 42% 76%, rgba(255, 255, 255, 0.14) 0 1px, transparent 1.6px),
+    linear-gradient(rgba(110, 168, 255, 0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(110, 168, 255, 0.018) 1px, transparent 1px);
+  background-size: 240px 240px, 320px 320px, 280px 280px, 42px 42px, 42px 42px;
+  mask-image: radial-gradient(circle at 50% 32%, black, transparent 78%);
+  opacity: 0.36;
+}
+
+button,
+canvas {
+  touch-action: none;
+}
+
+.panel {
+  border: 1px solid var(--color-border);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.026), rgba(255, 255, 255, 0.006)),
+    rgba(17, 19, 23, 0.72);
+  box-shadow: var(--shadow-panel);
+  backdrop-filter: blur(18px);
+}
+
+.signal-field {
+  position: relative;
+  isolation: isolate;
+}
+
+.signal-field::before,
+.signal-field::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  border-radius: inherit;
+}
+
+.signal-field::before {
+  background:
+    linear-gradient(rgba(110, 168, 255, 0.032) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(110, 168, 255, 0.026) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(circle at 56% 48%, black, transparent 72%);
+  opacity: 0.7;
+}
+
+.signal-field::after {
+  background:
+    radial-gradient(circle at 23% 31%, rgba(255, 255, 255, 0.16) 0 1px, transparent 1.4px),
+    radial-gradient(circle at 64% 58%, rgba(110, 168, 255, 0.18) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 78% 24%, rgba(255, 255, 255, 0.12) 0 1px, transparent 1.4px);
+  background-size: 190px 190px, 260px 260px, 220px 220px;
+  opacity: 0.28;
+}
+
+.hairline {
+  border-color: var(--color-border);
+}

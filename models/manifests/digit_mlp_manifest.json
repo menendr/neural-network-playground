@@ -1,0 +1,35 @@
+{
+  "modelName": "DigitMLP",
+  "task": "Handwritten digit inference",
+  "architecture": "784-32-16-10",
+  "framework": "PyTorch",
+  "checkpoint": "models/checkpoints/digit_mlp.pt",
+  "checkpointSha256": "f2d58de9fceeec2e3825f4e695327d510bf293a44832eeb9340a264fb4e1fa0b",
+  "training": {
+    "dataset": "MNIST",
+    "recipe": "mnist-finetune-canvas-augmentation",
+    "augmentation": [
+      "random affine",
+      "crossbar sevens",
+      "stroke thickening",
+      "stroke softening",
+      "intensity variation"
+    ],
+    "epochs": 8,
+    "bestValidationAccuracy": 0.9648
+  },
+  "evaluation": {
+    "testAccuracy": 0.9638,
+    "crossbarSevenAccuracy": 0.963,
+    "perDigitAccuracy": {
+      "5": 0.9585,
+      "7": 0.9484,
+      "9": 0.9197
+    }
+  },
+  "visualization": {
+    "displayedArchitecture": "784 -> 32 -> 16 -> 10",
+    "backgroundMesh": "sampled symmetric paths",
+    "signalGraph": "fully connected displayed hidden/output layers"
+  }
+}
