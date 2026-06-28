@@ -1,0 +1,11 @@
+services:
+  neural-network-playground:
+    build:
+      context: .
+      args:
+        VITE_BASE_PATH: ${VITE_BASE_PATH:-/}
+    ports:
+      - "8000:8000"
+    environment:
+      PYTHONUNBUFFERED: "1"
+      APP_BASE_PATH: ${APP_BASE_PATH:-/}

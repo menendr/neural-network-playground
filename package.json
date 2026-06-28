@@ -1,0 +1,14 @@
+{
+  "name": "neural-network-playground",
+  "private": true,
+  "scripts": {
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:backend": "cd backend && uvicorn app.main:app --reload --host 0.0.0.0 --port 8000",
+    "test:frontend": "npm --prefix frontend run test",
+    "test:backend": "cd backend && python -m pytest tests",
+    "lint:backend": "ruff check backend",
+    "format:backend": "ruff format backend",
+    "smoke:ws": "python scripts/smoke_ws.py",
+    "build": "npm --prefix frontend run build"
+  }
+}
